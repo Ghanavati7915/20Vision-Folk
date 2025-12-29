@@ -171,7 +171,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container gap-6 p-2 columns-2 sm:columns-3 sm:gap-8 sm:p-4 mt-5 mt-18">
+  <div class="container gap-6 p-2 columns-2 sm:columns-6 sm:gap-8 sm:p-4 mt-18">
     <masonry-grid :items="items" :loading="loading" :skeleton-count="9" />
   </div>
 </template>

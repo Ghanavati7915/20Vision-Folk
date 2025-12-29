@@ -1,5 +1,7 @@
 <script setup lang="ts">
 //#region Imports
+import { QrCode } from 'lucide-vue-next'
+import { Heart } from 'lucide-vue-next'
 //#endregion
 
 //#region Instance
@@ -152,6 +154,7 @@ const data = ref<any>({
   image:'',
   similar:[],
   user:{
+    id:1,
     title:'علی خوش نویس زاده',
     description:'سال 1327 در اصفهان متولد شد. هنر سوخت در خانواده‌شان موروثی بود و پدرش مرحوم حسین خوشنویس‌زاده اصفهانی و جد او در حوزه هنر، علم و اجتهاد و به‌خصوص هنر سوخت مشغول بوده‌اند. او نیز از ۱۳ سالگی این هنر را شروع کرد. اولین استادش پدرش بود. سپس نزد استاد حاج مصورالملکی، نگارگری و نقاشی آموخت و در محضر اساتیدی چون محمد تجویدی، حسین بهزاد و حسن زرین‌خط، خوشنویسی را آموزش دید. استاد علی خوشنویس‌زاده اصفهانی مدرک درجه یک هنری دارد و از سال 1397 عضو مؤسسه هنرمندان پیشکسوت است.',
     avatar:'/img/avatar.jpg',
@@ -173,7 +176,38 @@ onMounted(async () => {
   data.value.image  = x.image;
   data.value.title  = x.title;
     data.value.similar = [
-
+      {
+        id: 8,
+        title: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به خط میر علی هروی عصر تیموری`,
+        description: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به خط میر علی هروی عصر تیموری رقم علی خوشنویس زاده اصفهانی دارای مهر اصالت و نشان یونسکو به ابعاد ۷۵×۵۵ سال تولید ۱۳۹۲ زمان اجرا هشت ماه محل رونمایی نقش خانه میدان امام اصفهان سال ۱۳۹۶ محل نگهداری مجموعه موزه شخصی قیمت دو ملیارد تومان`,
+        author: `علی خوش نویس زاده`,
+        avatar: `/img/avatar.jpg`,
+        image: `/img/art/8.jpeg`
+      },
+      {
+        id: 9,
+        title: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به میرزا غلام رضا اصفهانی عصر قاجار`,
+        description: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به میرزا غلام رضا اصفهانی عصر قاجار رقم علی خوشنویس زاده دارای مهر اصالت و نشان یونسکو به ابعاد ۷۵×۵۵ سال تولید ۱۳۹۲ زمان اجرا هشت ماه محل رونمایی نقش خانه میدان امام اصفهان محل رونمایی نقش خانه میدان امام اصفهان سال ۱۳۹۶ محل نگهداری مجموعه موزه شخصی قیمت دو ملیارد تومان.`,
+        author: `علی خوش نویس زاده`,
+        avatar: `/img/avatar.jpg`,
+        image: `/img/art/9.jpeg`
+      },
+      {
+        id: 10,
+        title: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به خط میرزا غلام رضا اصفهانی عصر قاجار`,
+        description: `تابلو سوخت معرق و منبت چرم با موضوع خوشنویسی چلیپا به خط میرزا غلام رضا اصفهانی عصر قاجار رقم علی خوشنویس زاده اصفهانی دارای مهر اصالت و نشان یونسکو به ابعاد ۷۵×۵۵ سال تولید ۱۳۹۲ زمان اجرا هشت ماه محل رونمایی نقش خانه میدان امام اصفهان سال ۱۳۹۶ محل نگهداری مجموعه موزه شخصی قیمت دو ملیارد تومان`,
+        author: `علی خوش نویس زاده`,
+        avatar: `/img/avatar.jpg`,
+        image: `/img/art/10.jpeg`
+      },
+      {
+        id: 11,
+        title: `تابلو سوخت معرق و منبت چرم با موضوع گل ومرغ `,
+        description: `تابلو سوخت معرق و منبت چرم با موضوع گل ومرغ رقم علی خوشنویس زاده اصفهانی دارای مهر اصالت و نشان یونسکو به ابعاد ۷۵×۵۵ سال تولید ۱۳۹۴ زمان اجرا هشت ماه محل رونمایی نقش خانه میدان امام اصفهان سال ۱۳۹۶ محل نگهداری مجموعه موزه شخصی قیمت دو ملیارد تومان.`,
+        author: `علی خوش نویس زاده`,
+        avatar: `/img/avatar.jpg`,
+        image: `/img/art/11.jpeg`
+      },
       {
         id: 12,
         title: `تابلو سوخت معرق و منبت چرم با موضوع شکارگاه`,
@@ -229,33 +263,60 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="w-full h-full min-h-[100dvh] p-5 flex justify-center items-start mt-16">
-    <div class="w-1/3 h-full flex flex-col justify-start items-start">
 
-      <div class="flex flex-col mt-5">
-        <div class="flex w-full justify-center items-center flex-col">
-          <img :src="data.user.avatar" alt="avatar" class="rounded-full size-28"/>
-          <span class="Estedad_FD_Bold my-3">{{data.user.title}}</span>
-        </div>
-        <p class="Estedad_FD_Light text-xs text-justify leading-6">{{data.user.description}}</p>
+  <div class="container w-full flex flex-col gap-y-6 py-5 mt-20">
+    <!--#region Header-->
+    <div class="flex w-full justify-start items-center px-5">
+      <h1 class="Estedad_FD_Bold text-2xl">{{data.title}}</h1>
+    </div>
+    <!--#endregion-->
+
+    <!--#region Author-->
+    <div class="flex w-full justify-between items-center px-5 sm:mt-5">
+      <!--#region Image-Name-->
+      <div class="flex items-center justify-start">
+        <img :src="data.user.avatar" alt="avatar" class="rounded-full size-10 object-cover"/>
+        <span class="Estedad_FD_Bold text-sm mr-2">{{data.user.title}}</span>
       </div>
+      <!--#endregion-->
 
-      <div class="flex flex-col mt-5">
-        <span class="Estedad_FD_Bold mb-3"> درباره اثر </span>
-        <p class="Estedad_FD_Light text-xs text-justify leading-6">
-{{data.description}}
-        </p>
-      </div>
-
-      <div class="flex flex-col  mt-5">
-        <span class="Estedad_FD_Bold mb-3">سایر آثار</span>
-        <div class="w-full gap-6 p-2 columns-1 sm:columns-2 sm:gap-8 sm:p-4">
-          <masonry-grid :items="data.similar" :loading="loading" :skeleton-count="9" />
+      <!--#region Action-->
+      <div class="flex gap-x-2 items-center justify-start">
+        <div class="border-1 border-slate-900 size-8 sm:size-10 text-slate-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
+          <Heart class="size-4 sm:size-5" />
         </div>
+        <div class="border-1 border-slate-900 size-8 sm:size-10 text-slate-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
+          <QrCode class="size-4 sm:size-5" />
+        </div>
+        <nuxt-link :to="`/artist/${data.user.id}`" class="bg-slate-900 text-white px-4 h-8 sm:h-10 sm:px-8 sm:text-sm flex justify-center items-center text-xs rounded-full transition-all ease-in-out duration-300 hover:-translate-y-2">
+          مشاهده
+        </nuxt-link>
+      </div>
+      <!--#endregion-->
+    </div>
+    <!--#endregion-->
+
+    <!--#region Art-->
+    <div class="flex w-full justify-center items-center sm:my-5">
+      <img :src="data.image" alt="image" class="w-full sm:max-h-[80dvh] object-contain sm:rounded-lg"/>
+    </div>
+    <!--#endregion-->
+
+    <!--#region Description-->
+    <div class="flex w-full justify-center items-center Estedad_FD_Light text-sm text-justify leading-8 px-5">
+        {{data.description}}
+    </div>
+    <!--#endregion-->
+
+    <!--#region Similar-->
+    <div class="flex flex-col mt-5 px-5">
+      <span class="Estedad_FD_Bold mb-3">سایر آثار</span>
+      <div class="w-full gap-6 p-2 columns-3 sm:columns-5 sm:gap-8 sm:p-4">
+        <masonry-grid :items="data.similar" :loading="loading" :skeleton-count="9" />
       </div>
     </div>
-    <div class="w-2/3 flex px-5 justify-center items-start">
-      <img :src="data.image" alt="image" class="w-full object-contain rounded-lg"/>
-    </div>
+    <!--#endregion-->
+
   </div>
+
 </template>

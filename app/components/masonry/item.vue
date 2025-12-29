@@ -64,18 +64,16 @@ const openPage = async (link:any) => {
 
     <!-- Content -->
     <div class="mt-2">
-      <div
-          class="text-xs Estedad_FD_Light text-slate-500 flex items-center justify-start mb-2"
-      >
+      <div class="text-xs Estedad_FD_Light text-slate-500 flex items-center justify-start mb-2 line-clamp-1">
         <img
             :src="data.avatar"
             alt="avatar"
-            class="size-6 rounded-full ml-2"
+            class="h-6 w-6 object-cover rounded-full ml-2"
         />
         {{ data.author }}
       </div>
 
-      <h3 class="text-sm font-semibold">
+      <h3 class="text-sm font-semibold  line-clamp-2">
         {{ data.title }}
       </h3>
     </div>

@@ -28,7 +28,8 @@ export default defineNuxtConfig({
                 {rel: "icon", type: "image/png", href: "/favicon.ico"},
                 {rel: "apple-touch-icon", sizes: "180x180", href: "/logo.png"},
             ],
-        }
+        },
+        pageTransition: { name: 'page', mode: 'out-in' }
     },
     compatibilityDate: '2025-07-15',
     plugins: [{ src: "@/plugins/bootstrap", mode: "client" }],
