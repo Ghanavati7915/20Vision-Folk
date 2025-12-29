@@ -1,0 +1,25 @@
+{
+  "client_id": "20VisionFolk",
+  "is_multi_token": true,
+  "environment": "Development",
+  "database": {
+    "version": 1,
+    "db_name": "20visionFolk",
+    "tables_name" : ["config"]
+  },
+  "api_methods" : {
+    "user_info": "Auth/UserInfo",
+    "authorization_by_app_code": "Auth/AuthorizationByAppCode",
+    "refresh_token": "Auth/RefreshToken"
+  },
+  "production" : {
+    "base_url" : "https://crm.20visions.ir/api",
+    "redirect_uri": "https://v8.20visions.ir/login",
+    "sso_site_url": "https://v8.20visions.ir"
+  },
+  "development" : {
+    "redirect_uri": "http://localhost:8000/login",
+    "base_url" : "http://localhost:9000",
+    "sso_site_url": "http://localhost:8000"
+  }
+}
