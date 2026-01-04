@@ -1,5 +1,8 @@
 <script setup lang="ts">
 //#region Imports
+import { PhoneCall } from "lucide-vue-next"
+import { Globe } from "lucide-vue-next"
+import { Mail } from "lucide-vue-next"
 //#endregion
 
 //#region Instance
@@ -17,6 +20,9 @@ const tabs = ref<any[]>([
 const data = ref<any>({
   title:'علی خوش نویس زاده',
   info:'سال 1327 در اصفهان متولد شد. هنر سوخت در خانواده‌شان موروثی بود و پدرش مرحوم حسین خوشنویس‌زاده اصفهانی و جد او در حوزه هنر، علم و اجتهاد و به‌خصوص هنر سوخت مشغول بوده‌اند.',
+  mobile:'+989044157915',
+  email:'info@khoshNevisZadeh@com',
+  site:'www.khoshNevisZadeh.com',
   description:`
     <p>
     سال 1327 در اصفهان متولد شد. هنر سوخت در خانواده‌شان موروثی بود و پدرش مرحوم حسین خوشنویس‌زاده اصفهانی و جد او در حوزه هنر، علم و اجتهاد و به‌خصوص هنر سوخت مشغول بوده‌اند. او نیز از ۱۳ سالگی این هنر را شروع کرد. اولین استادش پدرش بود. سپس نزد استاد حاج مصورالملکی، نگارگری و نقاشی آموخت و در محضر اساتیدی چون محمد تجویدی، حسین بهزاد و حسن زرین‌خط، خوشنویسی را آموزش دید.
@@ -188,12 +194,17 @@ const data = ref<any>({
       image: `/img/art/17.jpeg`
     }],
 })
-const selectedTab = ref<any>(tabs.value[0].id)
+const selectedTab = ref<any>(tabs.value[3].id)
 const qr = ref<any>('')
+const rotatedCard = ref<boolean>(false)
 //#endregion
 
 //#region Function
+const rotateCard = () => {
+  rotatedCard.value = !rotatedCard.value
+}
 //#endregion
+
 //#region LifeCycle
 onMounted(async () => {
   if (process.client) {
@@ -275,10 +286,132 @@ onMounted(async () => {
     <!--#endregion-->
 
     <!--#region visitCard-->
-    <div v-if="selectedTab == 'visitCard'" class="px-5 w-full flex justify-center items-center py-5">
+    <div v-if="selectedTab == 'visitCard'" class="px-5 w-full flex justify-center items-center py-5 relative">
+      <div class="visitCard" @click="rotateCard">
+        <div class="content" :class="rotatedCard ? 'contentRotated' : ''">
+          <div class="front bg-slate-800 text-slate-100 shadow-2xl flex flex-col justify-start items-center overflow-hidden">
 
+            <!--#region Header-->
+            <div class="w-full flex justify-center items-center bg-amber-500 h-36">
+            </div>
+            <!--#endregion-->
+
+            <!--#region Avatar-->
+            <div class="w-full flex justify-center items-center">
+              <div class="flex justify-center items-center -translate-y-[110px] bg-slate-800 rounded-full size-65">
+                <img :src="data.avatar" alt="avatar" class="rounded-full object-cover size-50 border-8 border-amber-500"/>
+              </div>
+            </div>
+            <!--#endregion-->
+
+            <!--#region Title-->
+            <div class="w-full flex justify-center items-center -translate-y-[110px]">
+              <span class="text-lg"> {{data.title}} </span>
+            </div>
+            <!--#endregion-->
+
+            <!--#region contacts-->
+            <div class="w-full flex flex-col justify-center items-center -translate-y-[70px] px-5 gap-y-3">
+              <!--#region Phone-->
+              <div class="flex w-full justify-start items-center">
+                <div class="rounded-full flex justify-center items-center bg-amber-500 size-8 ml-3">
+                  <PhoneCall class="text-xs size-4 text-slate-800"/>
+                </div>
+                <span class="text-sm dir-ltr"> {{data.mobile}} </span>
+              </div>
+              <!--#endregion-->
+              <!--#region Email-->
+              <div class="flex w-full justify-start items-center">
+                <div class="rounded-full flex justify-center items-center bg-amber-500 size-8 ml-3">
+                  <Globe class="text-xs size-4 text-slate-800"/>
+                </div>
+                <span class="text-sm dir-ltr"> {{data.email}} </span>
+              </div>
+              <!--#endregion-->
+              <!--#region Site-->
+              <div class="flex w-full justify-start items-center">
+                <div class="rounded-full flex justify-center items-center bg-amber-500 size-8 ml-3">
+                  <Mail class="text-xs size-4 text-slate-800"/>
+                </div>
+                <span class="text-sm dir-ltr"> {{data.site}} </span>
+              </div>
+              <!--#endregion-->
+            </div>
+            <!--#endregion-->
+
+          </div>
+          <div class="back bg-slate-800 text-slate-100  shadow-2xl flex flex-col justify-start items-center overflow-hidden">
+
+            <!--#region Header-->
+            <div class="w-full flex justify-center items-center bg-amber-500 h-[300px]">
+            </div>
+            <!--#endregion-->
+
+            <!--#region Avatar-->
+            <div class="w-full flex justify-center items-center">
+              <div class="flex justify-center items-center bg-slate-800 rounded-full size-55 -translate-y-[110px]">
+                <div class="rounded-full object-cover relative flex justify-center items-center size-45 border-8 border-amber-500">
+                  <qrcode-vue
+                      level="M"
+                      render-as="svg"
+                      size="110"
+                      :value="qr"
+                      :margin="2"
+                      background="#1d293d"
+                      foreground='#ffffff'
+                      class="m-auto"/>
+                </div>
+              </div>
+            </div>
+            <!--#endregion-->
+
+            <!--#region Title-->
+            <div class="w-full flex justify-center items-center -translate-y-[70px]">
+              <span class="text-sm"> جهت اشتراک گذاری اسکن کنید </span>
+            </div>
+            <!--#endregion-->
+
+          </div>
+        </div>
+      </div>
     </div>
     <!--#endregion-->
   </div>
 
 </template>
+
+<style scoped>
+.visitCard {
+  width: 320px;
+  height: 550px;
+  float: left;
+  perspective: 500px;
+}
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.contentRotated {
+  transform: rotateY( 180deg ) !important;
+  transition: transform 0.5s !important;
+}
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 300px;
+  text-align: center;
+  font-size: 60px;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+.back {
+  transform: rotateY( 180deg );
+}
+</style>
