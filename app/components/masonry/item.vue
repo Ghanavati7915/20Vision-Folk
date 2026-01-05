@@ -70,10 +70,10 @@ const openPage = async (link:any) => {
             alt="avatar"
             class="h-6 w-6 object-cover rounded-full ml-2"
         />
-        {{ data.author }}
+        <span class="text-xs text-gray-400">{{ data.author }}</span>
       </div>
 
-      <h3 class="text-sm font-semibold  line-clamp-2">
+      <h3 class="text-xs text-white line-clamp-2">
         {{ data.title }}
       </h3>
     </div>

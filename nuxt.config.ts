@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     },
 
     appConfig: {buildDate: new Date().toISOString()},
-    modules: ['cap-module', 'shadcn-nuxt','motion-v/nuxt'],
+    modules: ['cap-module', 'shadcn-nuxt','motion-v/nuxt','@nuxtjs/device'],
     shadcn: {
         prefix: '',
         componentDir: '@/components/ui'

@@ -16,6 +16,7 @@ const tabs = ref<any[]>([
   {id:'arts',title:'آثار'},
   {id:'qr',title:'رمزینه'},
   {id:'visitCard',title:'کارت ویزیت'},
+  {id:'visitCard2',title:'کارت اختصاصی'},
 ])
 const data = ref<any>({
   title:'علی خوش نویس زاده',
@@ -194,7 +195,7 @@ const data = ref<any>({
       image: `/img/art/17.jpeg`
     }],
 })
-const selectedTab = ref<any>(tabs.value[3].id)
+const selectedTab = ref<any>(tabs.value[0].id)
 const qr = ref<any>('')
 const rotatedCard = ref<boolean>(false)
 //#endregion
@@ -217,7 +218,7 @@ onMounted(async () => {
 
 <template>
 
-  <div class="container w-full flex flex-col gap-y-6 py-5 mt-20">
+  <div class="container w-full flex flex-col gap-y-6 py-5">
 
     <!--#region Header-->
     <div class="flex w-full justify-center items-center flex-col px-5 gap-y-4">
@@ -225,10 +226,10 @@ onMounted(async () => {
       <img :src="data.avatar" alt="avatar" class="rounded-full object-cover size-30"/>
       <!--#endregion-->
       <!--#region Name-->
-      <span class="Estedad_FD_Bold my-3">{{data.title}}</span>
+      <span class="Estedad_FD_Bold text-white my-3">{{data.title}}</span>
       <!--#endregion-->
       <!--#region Statistic-->
-      <div class="flex justify-center items-center w-full text-xs px-5 gap-x-5">
+      <div class="flex justify-center items-center  text-gray-300 w-full text-xs px-5 gap-x-5">
         <div class="flex gap-x-1">
           <span class="Estedad_FD_Bold">{{data.followers}}</span>
           <span>دنبال کننده</span>
@@ -241,17 +242,17 @@ onMounted(async () => {
       </div>
       <!--#endregion-->
       <!--#region Info-->
-      <p class="Estedad_FD_Light text-xs text-justify leading-6">{{data.info}}</p>
+      <p class="Estedad_FD_Light text-xs text-justify text-gray-300 leading-6">{{data.info}}</p>
       <!--#endregion-->
     </div>
     <!--#endregion-->
 
     <!--#region Tabs-->
-    <div class="flex w-full justify-center items-center px-5 gap-x-4 sm:my-5">
+    <div class="flex w-full justify-center items-center px-5 gap-x-4 sm:my-5 bg-gray-800 py-2">
       <div v-for="(it,i) in tabs"
            :key="`tab_${i}`"
-           class="text-sm Estedad_FD_Bold w-24 flex justify-center items-center cursor-pointer text-center rounded-full py-1 transition-all ease-in-out duration-500 hover:bg-[#e4e0d6] hover:opacity-40 hover:border hover:border-slate-900"
-           :class="selectedTab == it.id ? 'bg-[#e4e0d6] border border-slate-900' : ''"
+           class="text-sm Estedad_FD_Light w-24 flex justify-center items-center cursor-pointer text-center py-1 transition-all ease-in-out duration-500 hover:bg-[#e4e0d6] hover:opacity-40 hover:border hover:border-slate-900"
+           :class="selectedTab == it.id ? 'bg-gray-200 rounded-sm border border-slate-900' : ' text-gray-300'"
            @click="selectedTab = it.id"
       >
         {{it.title}}
@@ -261,7 +262,7 @@ onMounted(async () => {
 
     <!--#region Info-->
     <div v-if="selectedTab == 'info'" class="px-5 w-full flex">
-      <p class="Estedad_FD_Light text-xs flex flex-col gap-y-4 leading-6 sm:text-sm  sm:leading-8 sm:text-justify" v-html="data.description"></p>
+      <p class="Estedad_FD_Light text-gray-400 text-xs flex flex-col gap-y-4 leading-6 sm:text-sm  sm:leading-8 sm:text-justify" v-html="data.description"></p>
     </div>
     <!--#endregion-->
 
@@ -279,8 +280,8 @@ onMounted(async () => {
           size="250"
           :value="qr"
           :margin="5"
-          background="#f5f4f2"
-          foreground='#000000'
+          background="#111827"
+          foreground='#fff'
           class="m-auto"/>
     </div>
     <!--#endregion-->
@@ -371,6 +372,21 @@ onMounted(async () => {
             </div>
             <!--#endregion-->
 
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--#endregion-->
+
+    <!--#region visitCard-->
+    <div v-if="selectedTab == 'visitCard2'" class="px-5 w-full flex justify-center items-center py-5 relative">
+      <div class="visitCard" @click="rotateCard">
+        <div class="content" :class="rotatedCard ? 'contentRotated' : ''">
+          <div class="front bg-slate-800 text-slate-100 shadow-2xl flex flex-col justify-start items-center overflow-hidden">
+            <img src="/img/visit-special.jpg" alt="visitcard" class="w-full h-full object-fill"/>
+          </div>
+          <div class="back bg-slate-800 text-slate-100  shadow-2xl flex flex-col justify-start items-center overflow-hidden">
+            <img src="/img/visit-special.jpg" alt="visitcard" class="w-full h-full object-fill"/>
           </div>
         </div>
       </div>

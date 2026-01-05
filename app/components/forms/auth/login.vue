@@ -27,6 +27,7 @@ const router = useRouter()
 
 //#region Props
 const props = defineProps<{ class?: HTMLAttributes["class"] }>()
+const emits = defineEmits(['onMode']);
 //#endregion
 
 //#region Variables
@@ -38,7 +39,12 @@ const errorMessage = ref("")
 
 //#region Zod Schema
 const loginSchema = z.object({
-  username: z.string().min(3, "نام کاربری باید حداقل ۳ کاراکتر باشد"),
+  username: z
+      .string()
+      .regex(
+          /^(?:\+98|0)?9\d{9}$/,
+          'شماره موبایل معتبر وارد کنید'
+      ),
   password: z.string().min(3, "کلمه عبور باید حداقل 3 کاراکتر باشد"),
 })
 //#endregion
@@ -77,60 +83,68 @@ const handleSubmit = async (e: Event) => {
     loading.value = false
   }
 }
+const changeMode = () => {
+  emits("onMode",'register')
+}
 //#endregion
 </script>
 
 <template>
   <form :class="cn('flex flex-col gap-6', props.class)" @submit="handleSubmit">
     <FieldGroup>
+      <!--#region Header -->
       <div class="flex flex-col items-center gap-1 text-center">
         <h1 class="text-2xl font-bold">ورود به حساب کاربری</h1>
         <p class="text-muted-foreground text-sm text-balance">
           نام کاربری و کلمه عبور خود را وارد کنید
         </p>
       </div>
+      <!--#endregion-->
 
-      <!-- Username -->
+      <!--#region Username -->
       <Field>
-        <FieldLabel for="username">نام کاربری</FieldLabel>
+        <FieldLabel for="username">شماره تلفن همراه</FieldLabel>
         <Input
             id="username"
             type="text"
-            placeholder="username"
+            autocomplete="new-password"
+            maxlength="11"
             v-model="username"
             :disabled="loading"
         />
       </Field>
+      <!--#endregion-->
 
-      <!-- Password -->
+      <!--#region Password -->
       <Field>
         <FieldLabel for="password">کلمه عبور</FieldLabel>
         <Input
             id="password"
             type="password"
+            autocomplete="new-password"
             v-model="password"
             :disabled="loading"
         />
       </Field>
+      <!--#endregion-->
 
-      <!-- Error -->
+      <!--#region Error -->
       <Field v-if="errorMessage">
         <FieldError>{{ errorMessage }}</FieldError>
       </Field>
+      <!--#endregion-->
 
-      <!-- Submit -->
+      <!--#region Submit -->
       <Field>
-        <Button type="submit" :disabled="loading">
+        <Button type="submit"  class="cursor-pointer" :disabled="loading">
           <span v-if="loading">در حال بررسی...</span>
           <span v-else>ورود</span>
         </Button>
       </Field>
-
       <FieldSeparator> حساب کاربری ندارید ؟ </FieldSeparator>
-
       <Field>
-        <Button variant="outline" type="button" :disabled="loading">
-          ارتباط با بخش فروش
+        <Button variant="outline" type="button"  class="cursor-pointer" :disabled="loading" @click="changeMode">
+          ثبت نام کنید
         </Button>
 
         <FieldDescription class="text-center pt-5">
@@ -138,6 +152,7 @@ const handleSubmit = async (e: Event) => {
           <span class="mr-2">{{ projectConfig.version }}</span>
         </FieldDescription>
       </Field>
+      <!--#endregion-->
     </FieldGroup>
   </form>
 </template>

@@ -154,24 +154,13 @@ const search = () => {
 //#endregion
 //#region LifeCycle
 onMounted(async () => {
-  // setTimeout(() => {
-  //   items.value = Array.from({ length: 15 }).map((_, i) => ({
-  //     id: i,
-  //     title: `Item ${i + 1}`,
-  //     author: `علی خوش نویس زاده`,
-  //     avatar: `https://picsum.photos/400/${300 + i * 10}`,
-  //     image: `https://picsum.photos/400/${300 + i * 10}`
-  //   }))
-  //   loading.value = false
-  // }, 1500)
-
   loading.value = false
 })
 //#endregion
 </script>
 
 <template>
-  <div class="container gap-6 p-2 columns-2 sm:columns-6 sm:gap-8 sm:p-4 mt-18">
+  <div class="container gap-6 p-2 columns-2 sm:columns-6 sm:gap-8 sm:p-4">
     <masonry-grid :items="items" :loading="loading" :skeleton-count="9" />
   </div>
 </template>

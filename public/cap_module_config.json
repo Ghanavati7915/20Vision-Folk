@@ -19,7 +19,7 @@
   },
   "development" : {
     "redirect_uri": "http://localhost:8000/login",
-    "base_url" : "http://localhost:9000",
+    "base_url" : "http://localhost:1015",
     "sso_site_url": "http://localhost:8000"
   }
 }

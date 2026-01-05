@@ -264,10 +264,10 @@ onMounted(async () => {
 
 <template>
 
-  <div class="container w-full flex flex-col gap-y-6 py-5 mt-20">
+  <div class="container w-full flex flex-col gap-y-6 py-5">
     <!--#region Header-->
     <div class="flex w-full justify-start items-center px-5">
-      <h1 class="Estedad_FD_Bold text-2xl">{{data.title}}</h1>
+      <h1 class="Estedad_FD_Bold text-2xl text-white">{{data.title}}</h1>
     </div>
     <!--#endregion-->
 
@@ -276,19 +276,19 @@ onMounted(async () => {
       <!--#region Image-Name-->
       <div class="flex items-center justify-start">
         <img :src="data.user.avatar" alt="avatar" class="rounded-full size-10 object-cover"/>
-        <span class="Estedad_FD_Bold text-sm mr-2">{{data.user.title}}</span>
+        <span class="Estedad_FD_Bold text-sm text-gray-400 mr-2">{{data.user.title}}</span>
       </div>
       <!--#endregion-->
 
       <!--#region Action-->
       <div class="flex gap-x-2 items-center justify-start">
-        <div class="border-1 border-slate-900 size-8 sm:size-10 text-slate-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
+        <div class="border-1 border-slate-900 size-8 bg-gray-400 sm:size-10 text-gray-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
           <Heart class="size-4 sm:size-5" />
         </div>
-        <div class="border-1 border-slate-900 size-8 sm:size-10 text-slate-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
+        <div class="border-1 border-slate-900 size-8 bg-gray-400 sm:size-10 text-gray-900 text-xs rounded-full flex justify-center items-center cursor-pointer transition-all ease-in-out duration-300 hover:-translate-y-2">
           <QrCode class="size-4 sm:size-5" />
         </div>
-        <nuxt-link :to="`/artist/${data.user.id}`" class="bg-slate-900 text-white px-4 h-8 sm:h-10 sm:px-8 sm:text-sm flex justify-center items-center text-xs rounded-full transition-all ease-in-out duration-300 hover:-translate-y-2">
+        <nuxt-link :to="`/artist/${data.user.id}`" class="bg-gray-200 text-gray-900 px-4 h-8 sm:h-10 sm:px-8 sm:text-sm flex justify-center items-center text-xs rounded-full transition-all ease-in-out duration-300 hover:-translate-y-2">
           مشاهده
         </nuxt-link>
       </div>
@@ -303,14 +303,14 @@ onMounted(async () => {
     <!--#endregion-->
 
     <!--#region Description-->
-    <div class="flex w-full justify-center items-center Estedad_FD_Light text-sm text-justify leading-8 px-5">
+    <div class="flex w-full justify-center items-center text-gray-400 Estedad_FD_Light text-sm text-justify leading-8 px-5">
         {{data.description}}
     </div>
     <!--#endregion-->
 
     <!--#region Similar-->
     <div class="flex flex-col mt-5 px-5">
-      <span class="Estedad_FD_Bold mb-3">سایر آثار</span>
+      <span class="Estedad_FD_Bold mb-3 text-gray-200">سایر آثار</span>
       <div class="w-full gap-6 p-2 columns-3 sm:columns-5 sm:gap-8 sm:p-4">
         <masonry-grid :items="data.similar" :loading="loading" :skeleton-count="9" />
       </div>

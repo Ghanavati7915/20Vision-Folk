@@ -5,8 +5,13 @@ definePageMeta({
 
 //#region Import
 import projectConfig from "@/../project.config"
-import { GalleryVerticalEnd } from "lucide-vue-next"
-import LoginForm from "@/components/forms/login.vue"
+import LoginForm from "@/components/forms/auth/login.vue"
+import RegisterForm from "@/components/forms/auth/register.vue"
+//#endregion
+
+
+//#region Variables
+const mode = ref<string>('login') //register - login
 //#endregion
 
 </script>
@@ -22,7 +27,8 @@ import LoginForm from "@/components/forms/login.vue"
       </div>
       <div class="flex flex-1 items-center justify-center">
         <div class="w-full max-w-xs">
-          <LoginForm />
+          <LoginForm v-if="mode == 'login'" @onMode="()=>{mode = 'register'}"/>
+          <RegisterForm v-if="mode == 'register'" @onMode="()=>{mode = 'login'}"/>
         </div>
       </div>
     </div>
