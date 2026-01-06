@@ -17,9 +17,9 @@ const mode = ref<string>('login') //register - login
 </script>
 
 <template>
-  <div class="grid min-h-svh lg:grid-cols-2">
+  <div class="grid min-h-svh lg:grid-cols-2 bg-gray-900">
     <div class="flex flex-col gap-4 p-6 md:p-10">
-      <div class="flex justify-center gap-2 md:justify-start">
+      <div class="flex justify-center gap-2 md:justify-start text-gray-200">
         <nuxt-link href="/" class="flex items-center gap-2 font-medium">
           <img src="/logo.png" class="size-8" alt="logo"/>
           {{projectConfig.projectTitle}}
@@ -32,12 +32,13 @@ const mode = ref<string>('login') //register - login
         </div>
       </div>
     </div>
-    <div class="bg-muted relative hidden lg:block">
-      <img
-          src="/img/login.jpg"
-          alt="Image"
-          class="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-      >
+    <div class="bg-gray-900 overflow-hidden max-h-screen relative hidden lg:block">
+      <BgRoadOfArts/>
+<!--      <img-->
+<!--          src="/img/login.jpg"-->
+<!--          alt="Image"-->
+<!--          class="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"-->
+<!--      >-->
     </div>
   </div>
 </template>

@@ -115,8 +115,8 @@ const changeMode = () => {
     <FieldGroup>
       <!--#region Header -->
       <div class="flex flex-col items-center gap-1 text-center">
-        <h1 class="text-2xl font-bold">ثبت نام</h1>
-        <p class="text-muted-foreground text-sm text-balance">
+        <h1 class="text-2xl text-white  font-bold">ثبت نام</h1>
+        <p class="text-gray-400 mt-1 text-sm text-balance">
           اطلاعات خود را وارد کنید
         </p>
       </div>
@@ -124,7 +124,7 @@ const changeMode = () => {
 
       <!--#region Username -->
       <Field>
-        <FieldLabel for="username">شماره تلفن همراه</FieldLabel>
+        <FieldLabel for="username" class="text-gray-100">شماره تلفن همراه</FieldLabel>
         <Input
             id="username"
             type="text"
@@ -138,7 +138,7 @@ const changeMode = () => {
 
       <!--#region Firstname -->
       <Field>
-        <FieldLabel for="firstname">نام</FieldLabel>
+        <FieldLabel for="firstname" class="text-gray-100">نام</FieldLabel>
         <Input
             id="firstname"
             type="text"
@@ -150,7 +150,7 @@ const changeMode = () => {
 
       <!--#region Lastname -->
       <Field>
-        <FieldLabel for="lastname">نام خانوادگی</FieldLabel>
+        <FieldLabel for="lastname" class="text-gray-100">نام خانوادگی</FieldLabel>
         <Input
             id="lastname"
             type="text"
@@ -162,7 +162,7 @@ const changeMode = () => {
 
       <!--#region Password -->
       <Field>
-        <FieldLabel for="password">کلمه عبور</FieldLabel>
+        <FieldLabel for="password" class="text-gray-100">کلمه عبور</FieldLabel>
         <Input
             id="password"
             type="password"
@@ -181,18 +181,18 @@ const changeMode = () => {
 
       <!--#region Submit -->
       <Field>
-        <Button type="submit"  class="cursor-pointer" :disabled="loading">
+        <Button type="submit"  class="cursor-pointer bg-sky-500 hover:bg-sky-300 transition-all ease-in-out duration-300" :disabled="loading">
           <span v-if="loading">در حال ثبت اطلاعات ...</span>
           <span v-else>ثبت نام</span>
         </Button>
       </Field>
-      <FieldSeparator> حساب کاربری دارید ؟ </FieldSeparator>
+<!--      <FieldSeparator> حساب کاربری دارید ؟ </FieldSeparator>-->
       <Field>
-        <Button variant="outline" type="button" class="cursor-pointer" :disabled="loading" @click="changeMode">
+        <Button variant="outline" type="button" class="cursor-pointer transition-all ease-in-out duration-300" :disabled="loading" @click="changeMode">
           وارد شوید
         </Button>
 
-        <FieldDescription class="text-center pt-5">
+        <FieldDescription class="text-center text-gray-300 pt-5">
           <span>نسخه</span>
           <span class="mr-2">{{ projectConfig.version }}</span>
         </FieldDescription>
