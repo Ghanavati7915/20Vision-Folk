@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 //#endregion
 
 //#region Service
-import {getAllPersonal} from "@/services/phonebook"
+import {getAllPersonal} from "~/services/user"
 //#endregion
 
 //#region Instance

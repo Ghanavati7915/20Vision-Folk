@@ -16,7 +16,6 @@ const tabs = ref<any[]>([
   {id:'arts',title:'آثار'},
   {id:'qr',title:'رمزینه'},
   {id:'visitCard',title:'کارت ویزیت'},
-  {id:'visitCard2',title:'کارت اختصاصی'},
 ])
 const data = ref<any>({
   title:'علی خوش نویس زاده',
@@ -287,7 +286,7 @@ onMounted(async () => {
     <!--#endregion-->
 
     <!--#region visitCard-->
-    <div v-if="selectedTab == 'visitCard'" class="px-5 w-full flex justify-center items-center py-5 relative">
+    <div v-if="selectedTab == 'visitCard'" class="px-5 w-full flex flex-col space-y-5 justify-center items-center py-5 relative">
       <div class="visitCard" @click="rotateCard">
         <div class="content" :class="rotatedCard ? 'contentRotated' : ''">
           <div class="front bg-slate-800 text-slate-100 shadow-2xl flex flex-col justify-start items-center overflow-hidden">
@@ -375,11 +374,7 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-    </div>
-    <!--#endregion-->
 
-    <!--#region visitCard-->
-    <div v-if="selectedTab == 'visitCard2'" class="px-5 w-full flex justify-center items-center py-5 relative">
       <div class="visitCard" @click="rotateCard">
         <div class="content" :class="rotatedCard ? 'contentRotated' : ''">
           <div class="front bg-slate-800 text-slate-100 shadow-2xl flex flex-col justify-start items-center overflow-hidden">
@@ -392,6 +387,7 @@ onMounted(async () => {
       </div>
     </div>
     <!--#endregion-->
+
   </div>
 
 </template>

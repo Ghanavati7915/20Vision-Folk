@@ -93,7 +93,7 @@ const handleSubmit = async (e: Event) => {
     })
 
     if (response.result) {
-      await router.push('/');
+      await router.push('/profile');
     } else {
       errorMessage.value = response.message || "ورود ناموفق بود"
     }
@@ -128,6 +128,7 @@ const changeMode = () => {
         <Input
             id="username"
             type="text"
+            class="text-white"
             maxlength="11"
             autocomplete="new-password"
             v-model="username"
@@ -142,6 +143,7 @@ const changeMode = () => {
         <Input
             id="firstname"
             type="text"
+            class="text-white"
             v-model="firstname"
             :disabled="loading"
         />
@@ -154,6 +156,7 @@ const changeMode = () => {
         <Input
             id="lastname"
             type="text"
+            class="text-white"
             v-model="lastname"
             :disabled="loading"
         />
@@ -166,6 +169,7 @@ const changeMode = () => {
         <Input
             id="password"
             type="password"
+            class="text-white"
             autocomplete="new-password"
             v-model="password"
             :disabled="loading"

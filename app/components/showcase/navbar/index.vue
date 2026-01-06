@@ -1,21 +1,61 @@
 <script setup lang="ts">
 //#region Imports
 import {House, Search, User,Plus,UsersRound, Heart} from 'lucide-vue-next'
+import {useSidebar} from "~/components/ui/sidebar";
+//#endregion
+
+//#region Instance
+const user = await useUser()
+const route = useRoute()
+//#endregion
+
+//#region LifeCycle
+onMounted(async () => {
+
+})
 //#endregion
 </script>
 
 <template>
-<div class="fixed w-[100dvw] h-[6dvh] bg-gray-900 z-50 text-gray-100 bottom-0 left-0 p-2 px-10 flex items-center justify-between">
+<div class="navbar">
 
-  <nuxt-link to="/" class="flex justify-center items-center"><House class="size-5" /></nuxt-link>
-  <nuxt-link to="/" class="flex justify-center items-center"><Search class="size-5" /></nuxt-link>
-  <nuxt-link to="/" class="flex justify-center items-center"><Plus class="size-5" /></nuxt-link>
-  <nuxt-link to="/artist" class="flex justify-center items-center"><UsersRound class="size-5" /></nuxt-link>
-  <nuxt-link to="/login" class="flex justify-center items-center"><User class="size-5" /></nuxt-link>
+  <nuxt-link to="/" :class="route.fullPath == '/' ? 'opacity-100' : 'opacity-30'" class="item">
+    <House class="size-5" />
+    <span> خانه </span>
+  </nuxt-link>
+
+  <nuxt-link to="/search" :class="route.fullPath == '/search' ? 'opacity-100' : 'opacity-30'" class="item">
+    <Search class="size-5" />
+    <span> جستجو </span>
+  </nuxt-link>
+
+  <nuxt-link to="/new" :class="route.fullPath == '/new' ? 'opacity-100' : 'opacity-30'" class="item">
+    <Plus class="size-5" />
+    <span> افزودن </span>
+  </nuxt-link>
+
+  <nuxt-link to="/artist" :class="route.fullPath == '/artist' ? 'opacity-100' : 'opacity-30'" class="item">
+    <UsersRound class="size-5" />
+    <span> هنرمندان </span>
+  </nuxt-link>
+
+  <nuxt-link :to="user ? '/profile' : '/login'" :class="route.fullPath == '/profile' ? 'opacity-100' : 'opacity-30'" class="item">
+    <User class="size-5" />
+    <span> حساب کاربری </span>
+  </nuxt-link>
 
 </div>
 </template>
 
 <style scoped>
-
+@reference "tailwindcss";
+.navbar{
+  @apply fixed w-[100dvw] h-[6dvh] bg-gray-900 z-50 text-gray-100 bottom-0 left-0 p-2 px-10 flex items-center justify-between;
+  .item {
+    @apply flex flex-col justify-center items-center transition-all ease-in-out duration-300;
+    span {
+      @apply text-xs mt-1.5;
+    }
+  }
+}
 </style>

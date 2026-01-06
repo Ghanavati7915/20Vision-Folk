@@ -136,7 +136,7 @@ const scrollToCurrentYear = () => {
 
 const { start } = useTimeoutFn(scrollToCurrentYear, 0);
 
-const years = Array.from({ length: 40 }, (_, i) => todayDate.year - 20 + i);
+const years = Array.from({ length: 100 }, (_, i) => todayDate.year - 100 + i);
 </script>
 
 <template>

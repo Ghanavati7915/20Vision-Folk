@@ -1,4 +1,12 @@
 <script setup lang="ts">
+
+//#region Service
+import { getAll} from "@/services/artist"
+import {ref} from "vue";
+//#endregion
+
+//#region Variables
+const loading = ref(true)
 const items = ref<any[]>([
   {
     id: 1,
@@ -6,6 +14,35 @@ const items = ref<any[]>([
     avatar: `/img/avatar.jpg`
   }
   ])
+//#endregion
+
+//#region Functions
+const get = async () => {
+  loading.value = true
+  const {result,data} = await getAll({page:1,pageSize:100,search:''})
+  if (result) {
+    items.value = data.results.map((it: any) => ({
+      id: it.id,
+      title: `${it.firstname} ${it.lastname} ${it.extentionname}`,
+      skills: it.userSkills,
+      avatar: `/img/avatar.jpg`
+    }));
+    items.value.push({
+      id: 1,
+      title: `علی خوش نویس زاده`,
+      avatar: `/img/avatar.jpg`
+    });
+    console.log('data : ' , data)
+  }
+  loading.value = false
+}
+//#endregion
+
+//#region LifeCycle
+onMounted(async () => {
+  await get();
+})
+//#endregion
 </script>
 
 <template>

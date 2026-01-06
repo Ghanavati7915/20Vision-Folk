@@ -2,36 +2,25 @@
 //#endregion
 
 //#region Interfaces
-export interface personalPayload {
-    isCustomer: boolean
+export interface getAllPayload {
     search: string
-    pagination: IPagination
-}
-interface IPagination {
     page: number
     pageSize: number
 }
 //#endregion
 
 //#region Methods
-export async function getAllPersonal (payload: personalPayload): Promise<any> {
+export async function getAll (payload: getAllPayload): Promise<any> {
     try {
         const capAPI = useCapApi()
 
-        let url = 'Users/GetAll'
-        if  (payload.isCustomer) url = 'Users/GetAll/customers'
-
         const { data } = await (await capAPI.useAPI())({
-            method: "post",
-            url,
-            data: {
-                pagination : payload.pagination,
+            method: "get",
+            url:'artist',
+            params: {
                 search : payload.search,
-                order : {
-                    orderBy: "",
-                    order: 0
-                },
-                advancedFilter : null,
+                page : payload.page,
+                pageSize : payload.pageSize,
             }
         })
 

@@ -107,6 +107,7 @@ const changeMode = () => {
         <Input
             id="username"
             type="text"
+            class="text-white"
             autocomplete="new-password"
             maxlength="11"
             v-model="username"
@@ -121,6 +122,7 @@ const changeMode = () => {
         <Input
             id="password"
             type="password"
+            class="text-white"
             autocomplete="new-password"
             v-model="password"
             :disabled="loading"
