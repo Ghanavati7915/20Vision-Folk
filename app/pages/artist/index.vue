@@ -23,7 +23,7 @@ const get = async () => {
   if (result) {
     items.value = data.results.map((it: any) => ({
       id: it.id,
-      title: `${it.firstname} ${it.lastname} ${it.extentionname}`,
+      title: `${it.firstname} ${it.lastname} ${it.extentionname ? it.extentionname : ''}`,
       skills: it.userSkills,
       avatar: `/img/avatar.jpg`
     }));
@@ -46,13 +46,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container gap-6 p-5 grid grid-cols-1 sm:grid-cols-4">
+  <div class="container gap-2 p-3 grid grid-cols-2 sm:grid-cols-4">
     <nuxt-link
         v-for="(it,i) in items" :key="i"
         :to="`/artist/${it.id}`"
-        class="border-1 border-gray-600 rounded-lg p-2 py-2 sm:p-8 flex justify-start items-center cursor-pointer transition ease-in-out hover:-translate-y-2 hover:bg-slate-800">
-      <img :src="it.avatar" alt="" class="rounded-lg object-cover size-15"/>
-      <span class="Estedad_FD_Light mr-2 text-gray-400">{{it.title}}</span>
+        class="p-2 flex flex-col justify-center items-center cursor-pointer transition ease-in-out hover:-translate-y-2 hover:bg-slate-800">
+      <img :src="it.avatar" alt="" class="rounded-full object-cover size-26"/>
+      <span class="Estedad_FD_Light mt-3 text-gray-400">{{it.title}}</span>
     </nuxt-link>
   </div>
 </template>

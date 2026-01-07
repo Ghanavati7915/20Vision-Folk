@@ -112,29 +112,14 @@ const changeMode = () => {
 
 <template>
   <form :class="cn('flex flex-col gap-6', props.class)" @submit="handleSubmit">
-    <FieldGroup>
+    <FieldGroup class="gap-4 mt-3">
       <!--#region Header -->
-      <div class="flex flex-col items-center gap-1 text-center">
+      <div class="flex flex-col items-center gap-1 text-center mb-4">
         <h1 class="text-2xl text-white  font-bold">ثبت نام</h1>
         <p class="text-gray-400 mt-1 text-sm text-balance">
           اطلاعات خود را وارد کنید
         </p>
       </div>
-      <!--#endregion-->
-
-      <!--#region Username -->
-      <Field>
-        <FieldLabel for="username" class="text-gray-100">شماره تلفن همراه</FieldLabel>
-        <Input
-            id="username"
-            type="text"
-            class="text-white"
-            maxlength="11"
-            autocomplete="new-password"
-            v-model="username"
-            :disabled="loading"
-        />
-      </Field>
       <!--#endregion-->
 
       <!--#region Firstname -->
@@ -158,6 +143,21 @@ const changeMode = () => {
             type="text"
             class="text-white"
             v-model="lastname"
+            :disabled="loading"
+        />
+      </Field>
+      <!--#endregion-->
+
+      <!--#region Username -->
+      <Field>
+        <FieldLabel for="username" class="text-gray-100">شماره تلفن همراه</FieldLabel>
+        <Input
+            id="username"
+            type="text"
+            class="text-white"
+            maxlength="11"
+            autocomplete="new-password"
+            v-model="username"
             :disabled="loading"
         />
       </Field>

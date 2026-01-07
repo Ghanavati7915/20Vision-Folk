@@ -20,27 +20,27 @@ onMounted(async () => {
 <div class="navbar">
 
   <nuxt-link to="/" :class="route.fullPath == '/' ? 'opacity-100' : 'opacity-30'" class="item">
-    <House class="size-5" />
+    <House class="size-4" />
     <span> خانه </span>
   </nuxt-link>
 
   <nuxt-link to="/search" :class="route.fullPath == '/search' ? 'opacity-100' : 'opacity-30'" class="item">
-    <Search class="size-5" />
+    <Search class="size-4" />
     <span> جستجو </span>
   </nuxt-link>
 
   <nuxt-link to="/new" :class="route.fullPath == '/new' ? 'opacity-100' : 'opacity-30'" class="item">
-    <Plus class="size-5" />
+    <Plus class="size-4" />
     <span> افزودن </span>
   </nuxt-link>
 
   <nuxt-link to="/artist" :class="route.fullPath == '/artist' ? 'opacity-100' : 'opacity-30'" class="item">
-    <UsersRound class="size-5" />
+    <UsersRound class="size-4" />
     <span> هنرمندان </span>
   </nuxt-link>
 
   <nuxt-link :to="user ? '/profile' : '/login'" :class="route.fullPath == '/profile' ? 'opacity-100' : 'opacity-30'" class="item">
-    <User class="size-5" />
+    <User class="size-4" />
     <span> حساب کاربری </span>
   </nuxt-link>
 
@@ -50,11 +50,11 @@ onMounted(async () => {
 <style scoped>
 @reference "tailwindcss";
 .navbar{
-  @apply fixed w-[100dvw] h-[6dvh] bg-gray-900 z-50 text-gray-100 bottom-0 left-0 p-2 px-10 flex items-center justify-between;
+  @apply fixed w-[100dvw] h-[6dvh] px-10 bg-gray-900 z-50 text-gray-100 bottom-0 left-0 flex items-center justify-between;
   .item {
-    @apply flex flex-col justify-center items-center transition-all ease-in-out duration-300;
+    @apply flex flex-col justify-center items-center transition-all ease-in-out duration-300 pt-1;
     span {
-      @apply text-xs mt-1.5;
+      @apply text-[0.65rem] mt-1;
     }
   }
 }
