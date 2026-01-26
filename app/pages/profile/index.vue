@@ -55,6 +55,7 @@ const get = async () => {
 }
 const logout = async () => {
   await IndexDBClear('config')
+  await IndexDBRemove("config", "UserInfo")
   await router.push('/')
 }
 //#endregion

@@ -35,6 +35,7 @@ const username = ref("")
 const password = ref("")
 const firstname = ref("")
 const lastname = ref("")
+const registerToken = ref("")
 const loading = ref(false)
 const errorMessage = ref("")
 //#endregion
@@ -80,6 +81,11 @@ const handleSubmit = async (e: Event) => {
 
   if (!result.success) {
     errorMessage.value = result.error.errors[0].message
+    return
+  }
+
+  if (registerToken.value != '1046765') {
+    errorMessage.value = 'شناسه ثبت نام صحیح نمی باشد'
     return
   }
 
@@ -172,6 +178,21 @@ const changeMode = () => {
             class="text-white"
             autocomplete="new-password"
             v-model="password"
+            :disabled="loading"
+        />
+      </Field>
+      <!--#endregion-->
+
+      <!--#region RegisterToken -->
+      <Field>
+        <FieldLabel for="registerToken" class="text-gray-100">کد معرف ثبت نام</FieldLabel>
+        <Input
+            id="registerToken"
+            type="text"
+            class="text-white"
+            maxlength="7"
+            autocomplete="new-password"
+            v-model="registerToken"
             :disabled="loading"
         />
       </Field>

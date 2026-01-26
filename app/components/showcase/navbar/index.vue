@@ -1,16 +1,21 @@
 <script setup lang="ts">
 //#region Imports
-import {House, Search, User,Plus,UsersRound, Heart} from 'lucide-vue-next'
+import {House, Search, User,Plus,UsersRound} from 'lucide-vue-next'
 //#endregion
 
 //#region Instance
-const user = await useUser()
+let user = await useUser()
 const route = useRoute()
+//#endregion
+
+//#region watch
+watch(() => route, async () => {
+  user = await useUser()
+},{immediate:true,deep:true})
 //#endregion
 
 //#region LifeCycle
 onMounted(async () => {
-
 })
 //#endregion
 </script>
@@ -40,7 +45,8 @@ onMounted(async () => {
 
   <nuxt-link :to="user ? '/profile' : '/login'" :class="route.fullPath == '/profile' ? 'opacity-100' : 'opacity-30'" class="item">
     <User class="size-4" />
-    <span> حساب کاربری </span>
+    <span v-if="!user"> حساب کاربری </span>
+    <span v-if="user" class="line-clamp-1">{{user?.firstName}} {{user?.lastName}}</span>
   </nuxt-link>
 
 </div>

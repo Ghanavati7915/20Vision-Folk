@@ -73,7 +73,7 @@ onMounted(async () => {
 <template>
   <div class="container ">
 <!--#region Skills-->
-    <div class="grid grid-cols-3 justify-center items-center my-4 gap-x-2 gap-y-2">
+    <div class="grid grid-cols-3 sm:grid-cols-6 justify-center items-center my-4 gap-x-2 gap-y-2">
       <div
           v-for="(it,i) in _skills"
            :key="`skill_${i}`"
@@ -85,12 +85,12 @@ onMounted(async () => {
     </div>
     <!--#endregion-->
 <!--#region Artists-->
-    <div class="gap-2 p-3 grid grid-cols-2 sm:grid-cols-4">
+    <div class="gap-2 p-3 grid grid-cols-2 sm:grid-cols-8">
       <nuxt-link
           v-for="(it,i) in artists" :key="i"
           :to="`/artist/${it.id}`"
           class="p-2 flex flex-col relative justify-center items-center cursor-pointer transition ease-in-out hover:-translate-y-2 hover:bg-slate-800">
-        <img :src="it.avatar" alt="" class="rounded-full object-cover size-26"/>
+        <img :src="it.avatar" alt="" class="rounded-lg object-cover size-26"/>
         <div class="flex w-full mt-3 justify-center items-center gap-x-2">
           <div v-if="it.verified" class="bg-blue-500 -translate-y-0.5 size-4 rounded-full"></div>
           <span class="Estedad_FD_Bold text-xs text-gray-400">{{it.title}}</span>

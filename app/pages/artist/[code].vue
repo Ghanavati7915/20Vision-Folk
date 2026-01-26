@@ -197,7 +197,7 @@ onMounted(async () => {
     <div v-if="selectedTab == 'visitCard'" class="px-5 w-full flex flex-col space-y-5 justify-center items-center py-5 relative">
       <div class="visitCard" @click="rotateCard">
         <div class="content" :class="rotatedCard ? 'contentRotated' : ''">
-          <div class="front bg-[url('/img/sample/visit-card-white.jpg')] bg-cover text-slate-100 shadow-2xl pt-4 px-4 pb-2 flex flex-col justify-start items-center overflow-hidden">
+          <div class="front bg-[url('/img/sample/visit-card-white.jpg')] bg-cover cursor-pointer text-slate-100 shadow-2xl pt-4 px-4 pb-2 flex flex-col justify-start items-center overflow-hidden">
             <!--#region Header-->
             <div class="w-full flex justify-center items-center h-28">
               <!--#region Avatar-->
@@ -250,7 +250,7 @@ onMounted(async () => {
             </div>
             <!--#endregion-->
           </div>
-          <div class="back bg-[url('/img/sample/visit-card-black.jpg')] bg-cover text-slate-100 shadow-2xl pt-4 px-4 pb-2 flex flex-col justify-start items-center overflow-hidden">
+          <div class="back bg-[url('/img/sample/visit-card-black.jpg')] bg-cover cursor-pointer text-slate-100 shadow-2xl pt-4 px-4 pb-2 flex flex-col justify-start items-center overflow-hidden">
             <!--#region Header-->
             <div class="w-full flex justify-center items-center h-28">
               <!--#region Avatar-->
