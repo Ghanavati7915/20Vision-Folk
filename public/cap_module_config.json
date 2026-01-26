@@ -1,7 +1,7 @@
 {
   "client_id": "20VisionFolk",
   "is_multi_token": true,
-  "environment": "Development",
+  "environment": "Production",
   "database": {
     "version": 1,
     "db_name": "20visionFolk",
@@ -13,9 +13,9 @@
     "refresh_token": "Auth/RefreshToken"
   },
   "production" : {
-    "base_url" : "https://crm.20visions.ir/api",
-    "redirect_uri": "https://v8.20visions.ir/login",
-    "sso_site_url": "https://v8.20visions.ir"
+    "base_url" : "https://b.art.20visions.ir",
+    "redirect_uri": "https://art.20visions.ir/login",
+    "sso_site_url": "https://art.20visions.ir"
   },
   "development" : {
     "redirect_uri": "http://localhost:8000/login",

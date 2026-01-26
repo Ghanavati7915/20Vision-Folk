@@ -1,5 +1,15 @@
 <script setup lang="ts">
 import {ConfigProvider} from "reka-ui";
+useHead({
+  htmlAttrs: {
+    lang: 'fa',
+    dir: 'rtl'
+  },
+  bodyAttrs: {
+    class: 'Estedad_FD_Light select-none bg-gray-900 scroll-container'
+  }
+})
+
 definePageMeta({
   pageTransition: {
     name: 'page',
@@ -9,20 +19,22 @@ definePageMeta({
 
 </script>
 <template>
-  <html lang="fa" dir="rtl">
-  <body class="Estedad_FD_Light scroll-container">
     <ConfigProvider dir="rtl">
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
     </ConfigProvider>
-  </body>
-  </html>
 </template>
 
 
 <style>
 @reference "tailwindcss";
+
+html {
+  overflow-x: hidden !important;
+  overscroll-behavior: none;
+}
+
 .page-enter-active,
 .page-leave-active {
   transition: all 0.8s;
@@ -31,5 +43,15 @@ definePageMeta({
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.4s;
+}
+
+.layout-enter-from,
+.layout-leave-to {
+  filter: grayscale(1);
 }
 </style>

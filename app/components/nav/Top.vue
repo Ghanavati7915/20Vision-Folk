@@ -33,7 +33,7 @@ const makeBreadcrumbItem = (name:string) => {
 }
 //#endregion
 
-//#region Variables
+//#region Watch
 watch(
     () => route.name,
     () => {

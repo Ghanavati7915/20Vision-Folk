@@ -25,7 +25,7 @@ export async function login(payload: LoginPayload): Promise<ApiResult> {
         const capAPI = useCapApi()
         const { data } = await (await capAPI.useAPI())({
             method: "post",
-            url: "Auth/Login",
+            url: "/Auth/Login",
             data: {
                 username: payload.username,
                 password: payload.password,

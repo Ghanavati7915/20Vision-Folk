@@ -127,7 +127,7 @@
     direction: ltr !important;
 }
 
-/*#region Fonts*/
+/*#region Fonts Estedad*/
 @font-face {
     font-family: "Estedad-FD-Bold";
     src: url('../fonts/Estedad/fa/Estedad-FD-Bold.ttf') format("truetype");
@@ -141,5 +141,37 @@
 }
 .Estedad_FD_Light {
     font-family: 'Estedad-FD-Light', Tahoma, Sans-Serif !important;
+}
+/*#endregion*/
+
+
+/*#region Fonts Estedad*/
+@font-face {
+    font-family: "Farhang-ExtraBold";
+    src: url('../fonts/Farhang/Farhang2-ExtraBold.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Farhang-Bold";
+    src: url('../fonts/Farhang/Farhang2-Bold.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Farhang2-Medium";
+    src: url('../fonts/Farhang/Farhang2-Medium.ttf') format("truetype");
+}
+@font-face {
+    font-family: "Farhang2-Light";
+    src: url('../fonts/Farhang/Farhang2-Light.ttf') format("truetype");
+}
+.Farhang_ExtraBold {
+    font-family: 'Farhang-ExtraBold', Tahoma, Sans-Serif !important;
+}
+.Farhang_Bold {
+    font-family: 'Farhang-Bold', Tahoma, Sans-Serif !important;
+}
+.Farhang_Medium {
+    font-family: 'Farhang2-Medium', Tahoma, Sans-Serif !important;
+}
+.Farhang_Light {
+    font-family: 'Farhang2-Light', Tahoma, Sans-Serif !important;
 }
 /*#endregion*/

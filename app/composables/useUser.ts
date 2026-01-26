@@ -15,12 +15,13 @@ export interface Token {
     isLegal: boolean
 }
 
-export async function useUser(): Promise<UserInfo> {
+export async function useUser(redirectToLogin : boolean = false): Promise<UserInfo> {
     const accessToken = await IndexDBGet("config", "Access-Token")
     const userInfo = await IndexDBGet("config", "UserInfo")
 
     if (!accessToken || !userInfo) {
-        await navigateTo("/login")
+        if (redirectToLogin)  await navigateTo("/login")
+        else return null;
     }
 
     return userInfo as UserInfo

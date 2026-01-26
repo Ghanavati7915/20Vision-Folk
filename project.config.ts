@@ -3,7 +3,7 @@ import {BookOpen, Bot, Settings2, SquareTerminal, UsersRound, BookUser, Coins, H
 export default {
     projectTitle: "آفاق هنر",
     projectDescription: "صنایع دستی ، هنر ، سوغاتی",
-    version: "1.0.0",
+    version: "0.2 ( آزمایشی )",
     menus:[
         {
             title: "پیشخوان",

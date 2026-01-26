@@ -90,10 +90,10 @@ const changeMode = () => {
 </script>
 
 <template>
-  <form :class="cn('flex flex-col gap-6', props.class)" @submit="handleSubmit">
-    <FieldGroup>
+  <form :class="cn('flex flex-col gap-4', props.class)" @submit="handleSubmit">
+    <FieldGroup class="gap-5 mt-3">
       <!--#region Header -->
-      <div class="flex flex-col items-center gap-1 text-center">
+      <div class="flex flex-col mb-4 items-center gap-1 text-center">
         <h1 class="text-2xl text-white font-bold">ورود به حساب کاربری</h1>
         <p class="text-gray-400 mt-1 text-sm text-balance">
           نام کاربری و کلمه عبور خود را وارد کنید
@@ -107,6 +107,7 @@ const changeMode = () => {
         <Input
             id="username"
             type="text"
+            class="text-white"
             autocomplete="new-password"
             maxlength="11"
             v-model="username"
@@ -121,6 +122,7 @@ const changeMode = () => {
         <Input
             id="password"
             type="password"
+            class="text-white"
             autocomplete="new-password"
             v-model="password"
             :disabled="loading"
